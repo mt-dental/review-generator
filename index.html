@@ -6,13 +6,153 @@
 
   <title>口コミ生成</title>
 
+  <style>
+
+    body{
+
+      font-family: sans-serif;
+
+      padding: 30px;
+
+      max-width: 500px;
+
+      margin: auto;
+
+    }
+
+    h1{
+
+      margin-bottom: 30px;
+
+    }
+
+    select,
+
+    button{
+
+      width: 100%;
+
+      padding: 12px;
+
+      margin-top: 10px;
+
+      margin-bottom: 20px;
+
+      font-size: 16px;
+
+    }
+
+    #result{
+
+      background: #f5f5f5;
+
+      padding: 20px;
+
+      border-radius: 10px;
+
+      white-space: pre-line;
+
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-<h1>口コミ生成ページ</h1>
+<h1>口コミ生成</h1>
 
-<p>公開成功！</p>
+<label>
+
+  来院理由
+
+</label>
+
+<select id="purpose">
+
+  <option value="虫歯治療">
+
+    虫歯治療
+
+  </option>
+
+  <option value="クリーニング">
+
+    クリーニング
+
+  </option>
+
+  <option value="インプラント相談">
+
+    インプラント相談
+
+  </option>
+
+</select>
+
+<label>
+
+  良かった点
+
+</label>
+
+<select id="goodPoint">
+
+  <option value="説明が丁寧でした">
+
+    説明が丁寧
+
+  </option>
+
+  <option value="痛みに配慮してくれました">
+
+    痛みが少ない
+
+  </option>
+
+  <option value="スタッフが親切でした">
+
+    スタッフが親切
+
+  </option>
+
+</select>
+
+<button onclick="generateReview()">
+
+  口コミを生成
+
+</button>
+
+<div id="result"></div>
+
+<script>
+
+function generateReview(){
+
+  const purpose =
+
+    document.getElementById("purpose").value;
+
+  const goodPoint =
+
+    document.getElementById("goodPoint").value;
+
+  const review =
+
+    purpose + "で来院しました。\n\n" +
+
+    goodPoint + "。\n\n" +
+
+    "安心して通える歯医者さんだと思います。";
+
+  document.getElementById("result").innerText =
+
+    review;
+
+}
+
+</script>
 
 </body>
 
