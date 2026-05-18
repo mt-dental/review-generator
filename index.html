@@ -26,7 +26,7 @@
 
     .container{
 
-      max-width: 600px;
+      max-width: 650px;
 
       margin: auto;
 
@@ -44,19 +44,19 @@
 
       text-align: center;
 
-      margin-bottom: 40px;
-
-    }
-
-    .section{
-
-      margin-bottom: 35px;
+      margin-bottom: 30px;
 
     }
 
     h3{
 
       margin-bottom: 15px;
+
+    }
+
+    .section{
+
+      margin-bottom: 35px;
 
     }
 
@@ -68,6 +68,8 @@
 
       font-size: 17px;
 
+      line-height: 1.6;
+
     }
 
     input{
@@ -75,6 +77,26 @@
       margin-right: 10px;
 
       transform: scale(1.2);
+
+    }
+
+    .stars{
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      font-size: 28px;
+
+      margin-top: 20px;
+
+    }
+
+    .stars label{
+
+      cursor: pointer;
 
     }
 
@@ -95,6 +117,8 @@
       cursor: pointer;
 
     }
+
+    #nextButton,
 
     #generateButton{
 
@@ -138,19 +162,27 @@
 
     }
 
-    .stars{
+    #reviewPage{
 
-      display: flex;
-
-      gap: 10px;
-
-      font-size: 26px;
+      display: none;
 
     }
 
-    .stars label{
+    #lowRatingMessage{
 
-      cursor: pointer;
+      display: none;
+
+      text-align: center;
+
+      line-height: 1.8;
+
+      margin-top: 30px;
+
+      background: #f5f5f5;
+
+      padding: 25px;
+
+      border-radius: 12px;
 
     }
 
@@ -162,145 +194,235 @@
 
 <div class="container">
 
+<!-- 1ページ目 -->
+
+<div id="ratingPage">
+
+<h1>ご来院ありがとうございます</h1>
+
+<h3 style="text-align:center;">
+
+当院の満足度を教えてください
+
+</h3>
+
+<div class="stars">
+
+<label>
+
+<input type="radio" name="star" value="1">
+
+★
+
+</label>
+
+<label>
+
+<input type="radio" name="star" value="2">
+
+★★
+
+</label>
+
+<label>
+
+<input type="radio" name="star" value="3">
+
+★★★
+
+</label>
+
+<label>
+
+<input type="radio" name="star" value="4">
+
+★★★★
+
+</label>
+
+<label>
+
+<input type="radio" name="star" value="5">
+
+★★★★★
+
+</label>
+
+</div>
+
+<button id="nextButton" onclick="checkRating()">
+
+次へ進む
+
+</button>
+
+<div id="lowRatingMessage">
+
+貴重なご意見ありがとうございます。
+
+今後の改善に活かしてまいります。
+
+</div>
+
+</div>
+
+<!-- 2ページ目 -->
+
+<div id="reviewPage">
+
 <h1>口コミ生成</h1>
 
 <div class="section">
 
-  <h3>星評価</h3>
+<h3>来院理由</h3>
 
-  <div class="stars">
+<label>
 
-    <label>
+<input type="radio" name="purpose" value="虫歯治療">
 
-      <input type="radio" name="star" value="★☆☆☆☆">
+虫歯治療
 
-      ★
+</label>
 
-    </label>
+<label>
 
-    <label>
+<input type="radio" name="purpose" value="クリーニング">
 
-      <input type="radio" name="star" value="★★☆☆☆">
+クリーニング
 
-      ★★
+</label>
 
-    </label>
+<label>
 
-    <label>
+<input type="radio" name="purpose" value="根管治療">
 
-      <input type="radio" name="star" value="★★★☆☆">
+根管治療
 
-      ★★★
+</label>
 
-    </label>
+<label>
 
-    <label>
+<input type="radio" name="purpose" value="移植治療">
 
-      <input type="radio" name="star" value="★★★★☆">
+移植治療
 
-      ★★★★
+</label>
 
-    </label>
+<label>
 
-    <label>
+<input type="radio" name="purpose" value="インプラント治療">
 
-      <input type="radio" name="star" value="★★★★★" checked>
+インプラント治療
 
-      ★★★★★
+</label>
 
-    </label>
+<label>
 
-  </div>
+<input type="radio" name="purpose" value="ホワイトニング">
 
-</div>
+ホワイトニング
 
-<div class="section">
+</label>
 
-  <h3>来院理由</h3>
+<label>
 
-  <label>
+<input type="radio" name="purpose" value="歯周病治療">
 
-    <input type="radio" name="purpose" value="虫歯治療">
+歯周病治療
 
-    虫歯治療
+</label>
 
-  </label>
+<label>
 
-  <label>
+<input type="radio" name="purpose" value="矯正治療">
 
-    <input type="radio" name="purpose" value="クリーニング">
+矯正治療
 
-    クリーニング
+</label>
 
-  </label>
+<label>
 
-  <label>
+<input type="radio" name="purpose" value="抜歯後の治療">
 
-    <input type="radio" name="purpose" value="インプラント相談">
+抜歯後の治療
 
-    インプラント相談
-
-  </label>
-
-  <label>
-
-    <input type="radio" name="purpose" value="定期検診">
-
-    定期検診
-
-  </label>
+</label>
 
 </div>
 
 <div class="section">
 
-  <h3>良かった点（複数選択可）</h3>
+<h3>良かった点（複数選択可）</h3>
 
-  <label>
+<label>
 
-    <input type="checkbox" value="説明が丁寧でした">
+<input type="checkbox" value="説明が丁寧でした">
 
-    説明が丁寧
+説明が丁寧
 
-  </label>
+</label>
 
-  <label>
+<label>
 
-    <input type="checkbox" value="痛みに配慮してくれました">
+<input type="checkbox" value="痛みに配慮してくれました">
 
-    痛みが少ない
+痛みが少ない
 
-  </label>
+</label>
 
-  <label>
+<label>
 
-    <input type="checkbox" value="スタッフの皆さんが親切でした">
+<input type="checkbox" value="しっかり治療してくれました">
 
-    スタッフが親切
+ちゃんと治療してくれる
 
-  </label>
+</label>
 
-  <label>
+<label>
 
-    <input type="checkbox" value="院内が清潔でした">
+<input type="checkbox" value="スタッフの皆さんが親切でした">
 
-    清潔感
+スタッフが親切
 
-  </label>
+</label>
 
-  <label>
+<label>
 
-    <input type="checkbox" value="待ち時間が少なかったです">
+<input type="checkbox" value="院内が清潔でした">
 
-    待ち時間が少ない
+清潔感がある
 
-  </label>
+</label>
+
+<label>
+
+<input type="checkbox" value="クリーニングが丁寧でした">
+
+クリーニングが丁寧
+
+</label>
+
+<label>
+
+<input type="checkbox" value="待ち時間が少なかったです">
+
+待ち時間が少ない
+
+</label>
+
+<label>
+
+<input type="checkbox" value="歯を残す方向で考えてくれました">
+
+歯を残してもらった
+
+</label>
 
 </div>
 
 <button id="generateButton" onclick="generateReview()">
 
-  口コミを生成
+口コミを生成
 
 </button>
 
@@ -308,19 +430,63 @@
 
 <button id="copyButton" onclick="copyReview()">
 
-  コピーする
+コピーする
 
 </button>
 
 <button id="googleButton" onclick="goGoogleReview()">
 
-  Google口コミを書く
+Google口コミを書く
 
 </button>
 
 </div>
 
+</div>
+
 <script>
+
+let selectedStar = "";
+
+function checkRating(){
+
+  const star =
+
+    document.querySelector(
+
+      'input[name="star"]:checked'
+
+    );
+
+  if(!star){
+
+    alert("星評価を選択してください");
+
+    return;
+
+  }
+
+  selectedStar = star.value;
+
+  if(selectedStar === "4" || selectedStar === "5"){
+
+    document.getElementById("ratingPage").style.display =
+
+      "none";
+
+    document.getElementById("reviewPage").style.display =
+
+      "block";
+
+  }else{
+
+    document.getElementById("lowRatingMessage").style.display =
+
+      "block";
+
+  }
+
+}
 
 function randomChoice(array){
 
@@ -350,19 +516,11 @@ function generateReview(){
 
   }
 
-  const star =
-
-    document.querySelector(
-
-      'input[name="star"]:checked'
-
-    ).value;
-
   const checkedPoints =
 
     document.querySelectorAll(
 
-      'input[type="checkbox"]:checked'
+      '#reviewPage input[type="checkbox"]:checked'
 
     );
 
@@ -396,9 +554,15 @@ function generateReview(){
 
   ];
 
+  const starText =
+
+    "★".repeat(Number(selectedStar)) +
+
+    "☆".repeat(5 - Number(selectedStar));
+
   const review =
 
-    star + "\n\n" +
+    starText + "\n\n" +
 
     randomChoice(introPatterns) + "\n\n" +
 
