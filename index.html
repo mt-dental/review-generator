@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
 
 <head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>口コミ生成</title>
 
@@ -12,45 +16,141 @@
 
       font-family: sans-serif;
 
-      padding: 30px;
+      background: #f7f7f7;
 
-      max-width: 500px;
+      padding: 20px;
+
+      margin: 0;
+
+    }
+
+    .container{
+
+      max-width: 600px;
 
       margin: auto;
+
+      background: white;
+
+      padding: 25px;
+
+      border-radius: 20px;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
     }
 
     h1{
 
-      margin-bottom: 30px;
+      text-align: center;
+
+      margin-bottom: 40px;
 
     }
 
-    select,
+    .section{
+
+      margin-bottom: 35px;
+
+    }
+
+    h3{
+
+      margin-bottom: 15px;
+
+    }
+
+    label{
+
+      display: block;
+
+      margin-bottom: 12px;
+
+      font-size: 17px;
+
+    }
+
+    input{
+
+      margin-right: 10px;
+
+      transform: scale(1.2);
+
+    }
 
     button{
 
       width: 100%;
 
-      padding: 12px;
+      padding: 15px;
 
-      margin-top: 10px;
+      margin-top: 15px;
 
-      margin-bottom: 20px;
+      border: none;
+
+      border-radius: 12px;
 
       font-size: 16px;
+
+      cursor: pointer;
+
+    }
+
+    #generateButton{
+
+      background: #222;
+
+      color: white;
+
+    }
+
+    #copyButton{
+
+      background: #444;
+
+      color: white;
+
+    }
+
+    #googleButton{
+
+      background: #2d7ff9;
+
+      color: white;
 
     }
 
     #result{
 
+      margin-top: 30px;
+
       background: #f5f5f5;
 
       padding: 20px;
 
-      border-radius: 10px;
+      border-radius: 12px;
 
       white-space: pre-line;
+
+      line-height: 1.8;
+
+      font-size: 16px;
+
+    }
+
+    .stars{
+
+      display: flex;
+
+      gap: 10px;
+
+      font-size: 26px;
+
+    }
+
+    .stars label{
+
+      cursor: pointer;
 
     }
 
@@ -60,65 +160,145 @@
 
 <body>
 
+<div class="container">
+
 <h1>口コミ生成</h1>
 
-<label>
+<div class="section">
 
-  来院理由
+  <h3>星評価</h3>
 
-</label>
+  <div class="stars">
 
-<select id="purpose">
+    <label>
 
-  <option value="虫歯治療">
+      <input type="radio" name="star" value="★☆☆☆☆">
+
+      ★
+
+    </label>
+
+    <label>
+
+      <input type="radio" name="star" value="★★☆☆☆">
+
+      ★★
+
+    </label>
+
+    <label>
+
+      <input type="radio" name="star" value="★★★☆☆">
+
+      ★★★
+
+    </label>
+
+    <label>
+
+      <input type="radio" name="star" value="★★★★☆">
+
+      ★★★★
+
+    </label>
+
+    <label>
+
+      <input type="radio" name="star" value="★★★★★" checked>
+
+      ★★★★★
+
+    </label>
+
+  </div>
+
+</div>
+
+<div class="section">
+
+  <h3>来院理由</h3>
+
+  <label>
+
+    <input type="radio" name="purpose" value="虫歯治療">
 
     虫歯治療
 
-  </option>
+  </label>
 
-  <option value="クリーニング">
+  <label>
+
+    <input type="radio" name="purpose" value="クリーニング">
 
     クリーニング
 
-  </option>
+  </label>
 
-  <option value="インプラント相談">
+  <label>
+
+    <input type="radio" name="purpose" value="インプラント相談">
 
     インプラント相談
 
-  </option>
+  </label>
 
-</select>
+  <label>
 
-<label>
+    <input type="radio" name="purpose" value="定期検診">
 
-  良かった点
+    定期検診
 
-</label>
+  </label>
 
-<select id="goodPoint">
+</div>
 
-  <option value="説明が丁寧でした">
+<div class="section">
+
+  <h3>良かった点（複数選択可）</h3>
+
+  <label>
+
+    <input type="checkbox" value="説明が丁寧でした">
 
     説明が丁寧
 
-  </option>
+  </label>
 
-  <option value="痛みに配慮してくれました">
+  <label>
+
+    <input type="checkbox" value="痛みに配慮してくれました">
 
     痛みが少ない
 
-  </option>
+  </label>
 
-  <option value="スタッフが親切でした">
+  <label>
+
+    <input type="checkbox" value="スタッフの皆さんが親切でした">
 
     スタッフが親切
 
-  </option>
+  </label>
 
-</select>
+  <label>
 
-<button onclick="generateReview()">
+    <input type="checkbox" value="院内が清潔でした">
+
+    清潔感
+
+  </label>
+
+  <label>
+
+    <input type="checkbox" value="待ち時間が少なかったです">
+
+    待ち時間が少ない
+
+  </label>
+
+</div>
+
+<button id="generateButton" onclick="generateReview()">
 
   口コミを生成
 
@@ -126,29 +306,141 @@
 
 <div id="result"></div>
 
+<button id="copyButton" onclick="copyReview()">
+
+  コピーする
+
+</button>
+
+<button id="googleButton" onclick="goGoogleReview()">
+
+  Google口コミを書く
+
+</button>
+
+</div>
+
 <script>
+
+function randomChoice(array){
+
+  return array[
+
+    Math.floor(Math.random() * array.length)
+
+  ];
+
+}
 
 function generateReview(){
 
   const purpose =
 
-    document.getElementById("purpose").value;
+    document.querySelector(
 
-  const goodPoint =
+      'input[name="purpose"]:checked'
 
-    document.getElementById("goodPoint").value;
+    );
+
+  if(!purpose){
+
+    alert("来院理由を選択してください");
+
+    return;
+
+  }
+
+  const star =
+
+    document.querySelector(
+
+      'input[name="star"]:checked'
+
+    ).value;
+
+  const checkedPoints =
+
+    document.querySelectorAll(
+
+      'input[type="checkbox"]:checked'
+
+    );
+
+  let goodPointsText = "";
+
+  checkedPoints.forEach((point) => {
+
+    goodPointsText += point.value + "。\n";
+
+  });
+
+  const introPatterns = [
+
+    purpose.value + "で来院しました。",
+
+    purpose.value + "のため受診しました。",
+
+    purpose.value + "でお世話になりました。"
+
+  ];
+
+  const endingPatterns = [
+
+    "安心して通える歯医者さんだと思います。",
+
+    "今後も通いたいと思える医院でした。",
+
+    "周囲にもおすすめできる歯医者さんです。",
+
+    "丁寧に対応していただき満足しています。"
+
+  ];
 
   const review =
 
-    purpose + "で来院しました。\n\n" +
+    star + "\n\n" +
 
-    goodPoint + "。\n\n" +
+    randomChoice(introPatterns) + "\n\n" +
 
-    "安心して通える歯医者さんだと思います。";
+    goodPointsText + "\n" +
+
+    randomChoice(endingPatterns);
 
   document.getElementById("result").innerText =
 
     review;
+
+}
+
+function copyReview(){
+
+  const text =
+
+    document.getElementById("result").innerText;
+
+  if(text === ""){
+
+    alert("先に口コミを生成してください");
+
+    return;
+
+  }
+
+  navigator.clipboard.writeText(text);
+
+  alert("コピーしました！");
+
+}
+
+function goGoogleReview(){
+
+  window.open(
+
+    "https://g.page/r/CaJLMNEdHOFHEBM/review",
+
+    "_blank"
+
+  );
 
 }
 
