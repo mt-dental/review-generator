@@ -4,285 +4,203 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>口コミ生成</title>
+<title>口コミ生成</title>
 
-  <style>
+<style>
 
-    body{
+body{
 
-      font-family:
+  font-family:"Hiragino Sans","Yu Gothic",sans-serif;
 
-        "Hiragino Sans",
+  background:#dff4ff;
 
-        "Yu Gothic",
+  padding:15px;
 
-        sans-serif;
+  margin:0;
 
-      background: #dff4ff;
+  color:#444;
 
-      padding: 15px;
+}
 
-      margin: 0;
+.container{
 
-      color: #444;
+  max-width:700px;
 
-    }
+  margin:20px auto;
 
-    .container{
+  background:#f7fcff;
 
-      max-width: 700px;
+  padding:22px;
 
-      margin: 20px auto;
+  border-radius:24px;
 
-      background: #f7fcff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 
-      padding: 22px;
+}
 
-      border-radius: 24px;
+h1{
 
-      box-shadow:
+  text-align:center;
 
-        0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom:20px;
 
-    }
+  font-size:28px;
 
-    h1{
+}
 
-      text-align: center;
+h3{
 
-      margin-bottom: 20px;
+  margin-bottom:12px;
 
-      font-size: 28px;
+  font-size:18px;
 
-      color: #333;
+}
 
-    }
+.section{margin-bottom:25px;}
 
-    h3{
+.options-grid{
 
-      margin-bottom: 12px;
+  display:grid;
 
-      font-size: 18px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 
-      color: #555;
+  gap:10px;
 
-    }
+}
 
-    .section{
+label{
 
-      margin-bottom: 25px;
+  display:flex;
 
-    }
+  align-items:center;
 
-    .options-grid{
+  font-size:14px;
 
-      display: grid;
+  background:white;
 
-      grid-template-columns:
+  padding:10px 12px;
 
-        repeat(auto-fit, minmax(160px, 1fr));
+  border-radius:12px;
 
-      gap: 10px;
+  cursor:pointer;
 
-    }
+  transition:0.2s;
 
-    label{
+}
 
-      display: flex;
+label:hover{background:#eef9ff;}
 
-      align-items: center;
+input{margin-right:8px;}
 
-      font-size: 14px;
+.stars{
 
-      line-height: 1.4;
+  display:flex;
 
-      background: white;
+  justify-content:center;
 
-      padding: 10px 12px;
+  gap:10px;
 
-      border-radius: 12px;
+  font-size:28px;
 
-      transition: 0.2s;
+  margin-top:15px;
 
-      cursor: pointer;
+  flex-wrap:wrap;
 
-    }
+}
 
-    label:hover{
+.stars label{
 
-      background: #eef9ff;
+  background:transparent;
 
-    }
+  padding:8px;
 
-    input{
+  cursor:pointer;
 
-      margin-right: 8px;
+  transition:0.2s;
 
-      transform: scale(1.05);
+}
 
-    }
+.stars label:hover{
 
-    .stars{
+  transform:scale(1.2);
 
-      display: flex;
+}
 
-      justify-content: center;
+button{
 
-      gap: 10px;
+  width:100%;
 
-      font-size: 24px;
+  padding:14px;
 
-      margin-top: 15px;
+  margin-top:12px;
 
-      flex-wrap: wrap;
+  border:none;
 
-    }
+  border-radius:14px;
 
-    .stars label{
+  font-size:15px;
 
-      background: transparent;
+  font-weight:600;
 
-      padding: 0;
+  cursor:pointer;
 
-    }
+}
 
-    button{
+#nextButton,#generateButton,#lowRatingButton{
 
-      width: 100%;
+  background:#67a9c7;
 
-      padding: 14px;
+  color:white;
 
-      margin-top: 12px;
+}
 
-      border: none;
+#copyButton{background:#7bb8d3;color:white;}
 
-      border-radius: 14px;
+#googleButton{background:#8cc6df;color:white;}
 
-      font-size: 15px;
+#result{
 
-      font-weight: 600;
+  margin-top:22px;
 
-      cursor: pointer;
+  background:white;
 
-      transition: 0.2s;
+  padding:20px;
 
-    }
+  border-radius:16px;
 
-    button:hover{
+  white-space:pre-line;
 
-      opacity: 0.9;
+  line-height:1.8;
 
-    }
+}
 
-    #nextButton,
+#reviewPage{display:none;}
 
-    #generateButton,
+#lowRatingMessage,
 
-    #lowRatingButton{
+#thanksMessage{
 
-      background: #67a9c7;
+  display:none;
 
-      color: white;
+  margin-top:20px;
 
-    }
+  background:white;
 
-    #copyButton{
+  padding:20px;
 
-      background: #7bb8d3;
+  border-radius:16px;
 
-      color: white;
+  line-height:1.8;
 
-    }
+  text-align:center;
 
-    #googleButton{
+}
 
-      background: #8cc6df;
-
-      color: white;
-
-    }
-
-    #result{
-
-      margin-top: 22px;
-
-      background: white;
-
-      padding: 20px;
-
-      border-radius: 16px;
-
-      white-space: pre-line;
-
-      line-height: 1.8;
-
-      font-size: 15px;
-
-    }
-
-    #reviewPage{
-
-      display: none;
-
-    }
-
-    #lowRatingMessage{
-
-      display: none;
-
-      margin-top: 20px;
-
-      background: white;
-
-      padding: 20px;
-
-      border-radius: 16px;
-
-      line-height: 1.8;
-
-    }
-
-    #thanksMessage{
-
-      display: none;
-
-      margin-top: 20px;
-
-      background: white;
-
-      padding: 20px;
-
-      border-radius: 16px;
-
-      line-height: 1.8;
-
-      text-align: center;
-
-    }
-
-    @media(max-width:600px){
-
-      .options-grid{
-
-        grid-template-columns:
-
-          repeat(2, 1fr);
-
-      }
-
-      h1{
-
-        font-size: 24px;
-
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
@@ -290,79 +208,33 @@
 
 <div class="container">
 
-<!-- 星評価ページ -->
+<!-- 星評価 -->
 
 <div id="ratingPage">
 
-<h1>ご来院ありがとうございます</h1>
+  <h1>ご来院ありがとうございます</h1>
 
-<h3 style="text-align:center;">
+  <h3 style="text-align:center;">満足度を教えてください</h3>
 
-当院の満足度を教えてください
+  <div class="stars">
 
-</h3>
+    <label><input type="radio" name="star" value="1">★</label>
 
-<div class="stars">
+    <label><input type="radio" name="star" value="2">★★</label>
 
-<label>
+    <label><input type="radio" name="star" value="3">★★★</label>
 
-<input type="radio" name="star" value="1">
+    <label><input type="radio" name="star" value="4">★★★★</label>
 
-★
+    <label><input type="radio" name="star" value="5">★★★★★</label>
 
-</label>
+  </div>
 
-<label>
-
-<input type="radio" name="star" value="2">
-
-★★
-
-</label>
-
-<label>
-
-<input type="radio" name="star" value="3">
-
-★★★
-
-</label>
-
-<label>
-
-<input type="radio" name="star" value="4">
-
-★★★★
-
-</label>
-
-<label>
-
-<input type="radio" name="star" value="5">
-
-★★★★★
-
-</label>
+  <button id="nextButton" onclick="checkRating()">次へ進む</button>
 
 </div>
 
-<button id="nextButton" onclick="checkRating()">
-
-次へ進む
-
-</button>
-
-<div id="lowRatingMessage">
-
-貴重なご意見ありがとうございます。
-
-よろしければ来院理由のみお聞かせください。
-
-</div>
-
-</div>
-
-<!-- 口コミページ -->
+<!-- 口コミ -->
 
 <div id="reviewPage">
 
@@ -374,77 +246,15 @@
 
 <div class="options-grid">
 
-<label>
+<label><input type="radio" name="purpose" value="虫歯治療">虫歯治療</label>
 
-<input type="radio" name="purpose" value="虫歯治療">
+<label><input type="radio" name="purpose" value="クリーニング">クリーニング</label>
 
-虫歯治療
+<label><input type="radio" name="purpose" value="根管治療">根管治療</label>
 
-</label>
+<label><input type="radio" name="purpose" value="インプラント治療">インプラント</label>
 
-<label>
-
-<input type="radio" name="purpose" value="クリーニング">
-
-クリーニング
-
-</label>
-
-<label>
-
-<input type="radio" name="purpose" value="根管治療">
-
-根管治療
-
-</label>
-
-<label>
-
-<input type="radio" name="purpose" value="移植治療">
-
-移植治療
-
-</label>
-
-<label>
-
-<input type="radio" name="purpose" value="インプラント治療">
-
-インプラント治療
-
-</label>
-
-<label>
-
-<input type="radio" name="purpose" value="ホワイトニング">
-
-ホワイトニング
-
-</label>
-
-<label>
-
-<input type="radio" name="purpose" value="歯周病治療">
-
-歯周病治療
-
-</label>
-
-<label>
-
-<input type="radio" name="purpose" value="矯正治療">
-
-矯正治療
-
-</label>
-
-<label>
-
-<input type="radio" name="purpose" value="抜歯後の治療">
-
-抜歯後の治療
-
-</label>
+<label><input type="radio" name="purpose" value="矯正治療">矯正治療</label>
 
 </div>
 
@@ -452,85 +262,37 @@
 
 <div class="section" id="goodPointsSection">
 
-<h3>良かった点（複数選択可）</h3>
+<h3>良かった点（複数）</h3>
 
 <div class="options-grid">
 
-<label>
+<label><input type="checkbox" value="説明が丁寧">説明が丁寧</label>
 
-<input type="checkbox" value="説明が丁寧でした">
+<label><input type="checkbox" value="痛みが少ない">痛みが少ない</label>
 
-説明が丁寧
+<label><input type="checkbox" value="スタッフ親切">スタッフ親切</label>
 
-</label>
+<label><input type="checkbox" value="清潔感">清潔感</label>
 
-<label>
+<label><input type="checkbox" value="待ち時間少ない">待ち時間少ない</label>
 
-<input type="checkbox" value="痛みに配慮してくれました">
-
-痛みが少ない
-
-</label>
-
-<label>
-
-<input type="checkbox" value="しっかり治療してくれました">
-
-ちゃんと治療
-
-</label>
-
-<label>
-
-<input type="checkbox" value="スタッフの皆さんが親切でした">
-
-スタッフ親切
-
-</label>
-
-<label>
-
-<input type="checkbox" value="院内が清潔でした">
-
-清潔感
-
-</label>
-
-<label>
-
-<input type="checkbox" value="クリーニングが丁寧でした">
-
-クリーニング丁寧
-
-</label>
-
-<label>
-
-<input type="checkbox" value="待ち時間が少なかったです">
-
-待ち時間少ない
-
-</label>
-
-<label>
-
-<input type="checkbox" value="歯を残す方向で考えてくれました">
-
-歯を残してくれた
-
-</label>
+<label><input type="checkbox" value="歯を残してくれた">歯を残してくれた</label>
 
 </div>
 
 </div>
 
-<button id="lowRatingButton"
+<div id="lowRatingMessage">
 
-onclick="submitLowRating()"
+貴重なご意見ありがとうございます。<br>
 
-style="display:none;">
+来院理由のみお聞かせください。
 
-  決定
+</div>
+
+<button id="lowRatingButton" onclick="submitLowRating()" style="display:none;">
+
+決定
 
 </button>
 
@@ -544,21 +306,13 @@ style="display:none;">
 
 <div id="thanksMessage">
 
-  貴重なご意見ありがとうございました。
+貴重なご意見ありがとうございました。
 
 </div>
 
-<button id="copyButton" onclick="copyReview()">
+<button id="copyButton" onclick="copyReview()">コピーする</button>
 
-コピーする
-
-</button>
-
-<button id="googleButton" onclick="goGoogleReview()">
-
-Google口コミを書く
-
-</button>
+<button id="googleButton" onclick="goGoogleReview()">Google口コミを書く</button>
 
 </div>
 
@@ -568,15 +322,11 @@ Google口コミを書く
 
 let selectedStar = "";
 
+/* ① 星評価分岐改善 */
+
 function checkRating(){
 
-  const star =
-
-    document.querySelector(
-
-      'input[name="star"]:checked'
-
-    );
+  const star = document.querySelector('input[name="star"]:checked');
 
   if(!star){
 
@@ -588,61 +338,33 @@ function checkRating(){
 
   selectedStar = star.value;
 
-  document.getElementById("ratingPage").style.display =
+  document.getElementById("ratingPage").style.display="none";
 
-    "none";
+  document.getElementById("reviewPage").style.display="block";
 
-  document.getElementById("reviewPage").style.display =
+  if(selectedStar <= 3){
 
-    "block";
+    document.getElementById("goodPointsSection").style.display="none";
 
-  if(
+    document.getElementById("generateButton").style.display="none";
 
-    selectedStar === "1" ||
+    document.getElementById("copyButton").style.display="none";
 
-    selectedStar === "2" ||
+    document.getElementById("googleButton").style.display="none";
 
-    selectedStar === "3"
+    document.getElementById("lowRatingButton").style.display="block";
 
-  ){
-
-    document.getElementById("lowRatingMessage").style.display =
-
-      "block";
-
-    document.getElementById("goodPointsSection").style.display =
-
-      "none";
-
-    document.getElementById("generateButton").style.display =
-
-      "none";
-
-    document.getElementById("copyButton").style.display =
-
-      "none";
-
-    document.getElementById("googleButton").style.display =
-
-      "none";
-
-    document.getElementById("lowRatingButton").style.display =
-
-      "block";
+    document.getElementById("lowRatingMessage").style.display="block";
 
   }
 
 }
+
+/* ① 低評価終了導線改善 */
 
 function submitLowRating(){
 
-  const purpose =
-
-    document.querySelector(
-
-      'input[name="purpose"]:checked'
-
-    );
+  const purpose = document.querySelector('input[name="purpose"]:checked');
 
   if(!purpose){
 
@@ -652,35 +374,33 @@ function submitLowRating(){
 
   }
 
-  document.getElementById("thanksMessage").style.display =
+  document.getElementById("reviewPage").innerHTML = `
 
-    "block";
+    <div id="thanksMessage" style="display:block;">
 
-  document.getElementById("lowRatingButton").style.display =
+      貴重なご意見ありがとうございます。<br>
 
-    "none";
+      今後の改善に活かしてまいります。
+
+    </div>
+
+  `;
+
+}
+
+/* ランダム */
+
+function randomChoice(arr){
+
+  return arr[Math.floor(Math.random()*arr.length)];
 
 }
 
-function randomChoice(array){
-
-  return array[
-
-    Math.floor(Math.random() * array.length)
-
-  ];
-
-}
+/* ⑤ 良かった点の文章化改善 */
 
 function generateReview(){
 
-  const purpose =
-
-    document.querySelector(
-
-      'input[name="purpose"]:checked'
-
-    );
+  const purpose = document.querySelector('input[name="purpose"]:checked');
 
   if(!purpose){
 
@@ -690,41 +410,41 @@ function generateReview(){
 
   }
 
-  const checkedPoints =
+  const checked = document.querySelectorAll('#reviewPage input[type="checkbox"]:checked');
 
-    document.querySelectorAll(
+  let points = "";
 
-      '#reviewPage input[type="checkbox"]:checked'
+  checked.forEach(p=>{
 
-    );
-
-  let goodPointsText = "";
-
-  checkedPoints.forEach((point) => {
-
-    goodPointsText += point.value + "。\n";
+    points += p.value + "、";
 
   });
 
-  const introPatterns = [
+  if(points){
 
-    purpose.value + "で来院しました。",
+    points = "特に" + points.slice(0,-1) + "と感じました。\n";
 
-    purpose.value + "のため受診しました。",
+  }
 
-    purpose.value + "でお世話になりました。"
+  const intro = [
+
+    `${purpose.value}で来院しました。`,
+
+    `${purpose.value}のため受診しました。`,
+
+    `${purpose.value}でお世話になりました。`
 
   ];
 
-  const endingPatterns = [
+  const end = [
 
-    "安心して通える歯医者さんだと思います。",
+    "安心して通える歯科医院だと思います。",
 
     "今後も通いたいと思える医院でした。",
 
-    "周囲にもおすすめできる歯医者さんです。",
+    "周囲にもおすすめできる歯科医院です。",
 
-    "丁寧に対応していただき満足しています。"
+    "丁寧な対応で満足しています。"
 
   ];
 
@@ -732,31 +452,29 @@ function generateReview(){
 
     "★".repeat(Number(selectedStar)) +
 
-    "☆".repeat(5 - Number(selectedStar));
+    "☆".repeat(5-Number(selectedStar));
 
   const review =
 
     starText + "\n\n" +
 
-    randomChoice(introPatterns) + "\n\n" +
+    randomChoice(intro) + "\n\n" +
 
-    goodPointsText + "\n" +
+    points +
 
-    randomChoice(endingPatterns);
+    randomChoice(end);
 
-  document.getElementById("result").innerText =
-
-    review;
+  document.getElementById("result").innerText = review;
 
 }
 
+/* コピー */
+
 function copyReview(){
 
-  const text =
+  const text = document.getElementById("result").innerText;
 
-    document.getElementById("result").innerText;
-
-  if(text === ""){
+  if(!text){
 
     alert("先に口コミを生成してください");
 
@@ -769,6 +487,8 @@ function copyReview(){
   alert("コピーしました！");
 
 }
+
+/* ③ Googleリンク */
 
 function goGoogleReview(){
 
