@@ -180,7 +180,9 @@
 
     #nextButton,
 
-    #generateButton{
+    #generateButton,
+
+    #lowRatingButton{
 
       background: #67a9c7;
 
@@ -241,6 +243,24 @@
       border-radius: 16px;
 
       line-height: 1.8;
+
+    }
+
+    #thanksMessage{
+
+      display: none;
+
+      margin-top: 20px;
+
+      background: white;
+
+      padding: 20px;
+
+      border-radius: 16px;
+
+      line-height: 1.8;
+
+      text-align: center;
 
     }
 
@@ -504,6 +524,16 @@
 
 </div>
 
+<button id="lowRatingButton"
+
+onclick="submitLowRating()"
+
+style="display:none;">
+
+  決定
+
+</button>
+
 <button id="generateButton" onclick="generateReview()">
 
 口コミを生成
@@ -511,6 +541,12 @@
 </button>
 
 <div id="result"></div>
+
+<div id="thanksMessage">
+
+  貴重なご意見ありがとうございました。
+
+</div>
 
 <button id="copyButton" onclick="copyReview()">
 
@@ -590,7 +626,39 @@ function checkRating(){
 
       "none";
 
+    document.getElementById("lowRatingButton").style.display =
+
+      "block";
+
   }
+
+}
+
+function submitLowRating(){
+
+  const purpose =
+
+    document.querySelector(
+
+      'input[name="purpose"]:checked'
+
+    );
+
+  if(!purpose){
+
+    alert("来院理由を選択してください");
+
+    return;
+
+  }
+
+  document.getElementById("thanksMessage").style.display =
+
+    "block";
+
+  document.getElementById("lowRatingButton").style.display =
+
+    "none";
 
 }
 
@@ -706,7 +774,7 @@ function goGoogleReview(){
 
   window.open(
 
-    "https://g.page/r/CaJLMNEdHOFHEBM/review",
+    "https://www.google.com/search?q=歯科医院名+口コミ",
 
     "_blank"
 
