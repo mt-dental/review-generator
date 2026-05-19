@@ -22,9 +22,9 @@
 
         sans-serif;
 
-      background: #ececec;
+      background: #dff4ff;
 
-      padding: 20px;
+      padding: 15px;
 
       margin: 0;
 
@@ -34,19 +34,19 @@
 
     .container{
 
-      max-width: 650px;
+      max-width: 700px;
 
-      margin: 40px auto;
+      margin: 20px auto;
 
-      background: #f8f8f8;
+      background: #f7fcff;
 
-      padding: 30px;
+      padding: 22px;
 
       border-radius: 24px;
 
       box-shadow:
 
-        0 4px 12px rgba(0,0,0,0.06);
+        0 4px 12px rgba(0,0,0,0.05);
 
     }
 
@@ -54,9 +54,9 @@
 
       text-align: center;
 
-      margin-bottom: 30px;
+      margin-bottom: 20px;
 
-      font-weight: 600;
+      font-size: 28px;
 
       color: #333;
 
@@ -64,9 +64,9 @@
 
     h3{
 
-      margin-bottom: 15px;
+      margin-bottom: 12px;
 
-      font-weight: 600;
+      font-size: 18px;
 
       color: #555;
 
@@ -74,41 +74,55 @@
 
     .section{
 
-      margin-bottom: 35px;
+      margin-bottom: 25px;
+
+    }
+
+    .options-grid{
+
+      display: grid;
+
+      grid-template-columns:
+
+        repeat(auto-fit, minmax(160px, 1fr));
+
+      gap: 10px;
 
     }
 
     label{
 
-      display: block;
+      display: flex;
 
-      margin-bottom: 14px;
+      align-items: center;
 
-      font-size: 17px;
+      font-size: 14px;
 
-      line-height: 1.8;
+      line-height: 1.4;
 
       background: white;
 
-      padding: 14px 16px;
+      padding: 10px 12px;
 
-      border-radius: 14px;
+      border-radius: 12px;
 
       transition: 0.2s;
+
+      cursor: pointer;
 
     }
 
     label:hover{
 
-      background: #f0f0f0;
+      background: #eef9ff;
 
     }
 
     input{
 
-      margin-right: 12px;
+      margin-right: 8px;
 
-      transform: scale(1.2);
+      transform: scale(1.05);
 
     }
 
@@ -120,9 +134,11 @@
 
       gap: 10px;
 
-      font-size: 28px;
+      font-size: 24px;
 
-      margin-top: 20px;
+      margin-top: 15px;
+
+      flex-wrap: wrap;
 
     }
 
@@ -138,15 +154,15 @@
 
       width: 100%;
 
-      padding: 16px;
+      padding: 14px;
 
-      margin-top: 15px;
+      margin-top: 12px;
 
       border: none;
 
-      border-radius: 16px;
+      border-radius: 14px;
 
-      font-size: 16px;
+      font-size: 15px;
 
       font-weight: 600;
 
@@ -166,7 +182,7 @@
 
     #generateButton{
 
-      background: #5f5f5f;
+      background: #67a9c7;
 
       color: white;
 
@@ -174,7 +190,7 @@
 
     #copyButton{
 
-      background: #7a7a7a;
+      background: #7bb8d3;
 
       color: white;
 
@@ -182,7 +198,7 @@
 
     #googleButton{
 
-      background: #8a8a8a;
+      background: #8cc6df;
 
       color: white;
 
@@ -190,21 +206,19 @@
 
     #result{
 
-      margin-top: 30px;
+      margin-top: 22px;
 
       background: white;
 
-      padding: 24px;
+      padding: 20px;
 
-      border-radius: 18px;
+      border-radius: 16px;
 
       white-space: pre-line;
 
-      line-height: 2;
+      line-height: 1.8;
 
-      font-size: 16px;
-
-      color: #444;
+      font-size: 15px;
 
     }
 
@@ -218,17 +232,33 @@
 
       display: none;
 
-      text-align: center;
-
-      line-height: 2;
-
-      margin-top: 30px;
+      margin-top: 20px;
 
       background: white;
 
-      padding: 30px;
+      padding: 20px;
 
-      border-radius: 18px;
+      border-radius: 16px;
+
+      line-height: 1.8;
+
+    }
+
+    @media(max-width:600px){
+
+      .options-grid{
+
+        grid-template-columns:
+
+          repeat(2, 1fr);
+
+      }
+
+      h1{
+
+        font-size: 24px;
+
+      }
 
     }
 
@@ -240,7 +270,7 @@
 
 <div class="container">
 
-<!-- 1ページ目 -->
+<!-- 星評価ページ -->
 
 <div id="ratingPage">
 
@@ -306,13 +336,13 @@
 
 貴重なご意見ありがとうございます。
 
-今後の改善に活かしてまいります。
+よろしければ来院理由のみお聞かせください。
 
 </div>
 
 </div>
 
-<!-- 2ページ目 -->
+<!-- 口コミページ -->
 
 <div id="reviewPage">
 
@@ -321,6 +351,8 @@
 <div class="section">
 
 <h3>来院理由</h3>
+
+<div class="options-grid">
 
 <label>
 
@@ -396,9 +428,13 @@
 
 </div>
 
-<div class="section">
+</div>
+
+<div class="section" id="goodPointsSection">
 
 <h3>良かった点（複数選択可）</h3>
+
+<div class="options-grid">
 
 <label>
 
@@ -420,7 +456,7 @@
 
 <input type="checkbox" value="しっかり治療してくれました">
 
-ちゃんと治療してくれる
+ちゃんと治療
 
 </label>
 
@@ -428,7 +464,7 @@
 
 <input type="checkbox" value="スタッフの皆さんが親切でした">
 
-スタッフが親切
+スタッフ親切
 
 </label>
 
@@ -436,7 +472,7 @@
 
 <input type="checkbox" value="院内が清潔でした">
 
-清潔感がある
+清潔感
 
 </label>
 
@@ -444,7 +480,7 @@
 
 <input type="checkbox" value="クリーニングが丁寧でした">
 
-クリーニングが丁寧
+クリーニング丁寧
 
 </label>
 
@@ -452,7 +488,7 @@
 
 <input type="checkbox" value="待ち時間が少なかったです">
 
-待ち時間が少ない
+待ち時間少ない
 
 </label>
 
@@ -460,9 +496,11 @@
 
 <input type="checkbox" value="歯を残す方向で考えてくれました">
 
-歯を残してもらった
+歯を残してくれた
 
 </label>
+
+</div>
 
 </div>
 
@@ -514,21 +552,31 @@ function checkRating(){
 
   selectedStar = star.value;
 
-  if(selectedStar === "4" || selectedStar === "5"){
+  document.getElementById("ratingPage").style.display =
 
-    document.getElementById("ratingPage").style.display =
+    "none";
 
-      "none";
+  document.getElementById("reviewPage").style.display =
 
-    document.getElementById("reviewPage").style.display =
+    "block";
 
-      "block";
+  if(
 
-  }else{
+    selectedStar === "1" ||
+
+    selectedStar === "2" ||
+
+    selectedStar === "3"
+
+  ){
 
     document.getElementById("lowRatingMessage").style.display =
 
       "block";
+
+    document.getElementById("goodPointsSection").style.display =
+
+      "none";
 
   }
 
@@ -606,15 +654,37 @@ function generateReview(){
 
     "☆".repeat(5 - Number(selectedStar));
 
-  const review =
+  let review = "";
 
-    starText + "\n\n" +
+  if(
 
-    randomChoice(introPatterns) + "\n\n" +
+    selectedStar === "1" ||
 
-    goodPointsText + "\n" +
+    selectedStar === "2" ||
 
-    randomChoice(endingPatterns);
+    selectedStar === "3"
+
+  ){
+
+    review =
+
+      starText + "\n\n" +
+
+      purpose.value + "で来院しました。";
+
+  }else{
+
+    review =
+
+      starText + "\n\n" +
+
+      randomChoice(introPatterns) + "\n\n" +
+
+      goodPointsText + "\n" +
+
+      randomChoice(endingPatterns);
+
+  }
 
   document.getElementById("result").innerText =
 
