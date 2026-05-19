@@ -578,6 +578,18 @@ function checkRating(){
 
       "none";
 
+    document.getElementById("generateButton").style.display =
+
+      "none";
+
+    document.getElementById("copyButton").style.display =
+
+      "none";
+
+    document.getElementById("googleButton").style.display =
+
+      "none";
+
   }
 
 }
@@ -654,37 +666,15 @@ function generateReview(){
 
     "☆".repeat(5 - Number(selectedStar));
 
-  let review = "";
+  const review =
 
-  if(
+    starText + "\n\n" +
 
-    selectedStar === "1" ||
+    randomChoice(introPatterns) + "\n\n" +
 
-    selectedStar === "2" ||
+    goodPointsText + "\n" +
 
-    selectedStar === "3"
-
-  ){
-
-    review =
-
-      starText + "\n\n" +
-
-      purpose.value + "で来院しました。";
-
-  }else{
-
-    review =
-
-      starText + "\n\n" +
-
-      randomChoice(introPatterns) + "\n\n" +
-
-      goodPointsText + "\n" +
-
-      randomChoice(endingPatterns);
-
-  }
+    randomChoice(endingPatterns);
 
   document.getElementById("result").innerText =
 
