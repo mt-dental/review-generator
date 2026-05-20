@@ -74,13 +74,15 @@ h1{
 
 }
 
+/* 星選択 */
+
 .stars{
 
   display:flex;
 
   justify-content:center;
 
-  gap:12px;
+  gap:10px;
 
   flex-wrap:wrap;
 
@@ -90,29 +92,27 @@ h1{
 
 .stars label{
 
-  font-size:30px;
+  font-size:24px;
 
-  background:white;
+  background:transparent;
 
-  padding:12px 18px;
+  padding:0;
 
-  border-radius:16px;
+  border-radius:0;
 
   cursor:pointer;
 
   transition:0.2s;
 
-  box-shadow:
-
-    0 2px 8px rgba(0,0,0,0.05);
+  box-shadow:none;
 
 }
 
 .stars label:hover{
 
-  transform:scale(1.08);
+  transform:scale(1.1);
 
-  background:#eef9ff;
+  background:transparent;
 
 }
 
@@ -277,14 +277,6 @@ button:hover{
 #lowFlow{
 
   display:none;
-
-}
-
-#thanksMessage{
-
-  display:none;
-
-  text-align:center;
 
 }
 
@@ -633,12 +625,6 @@ Googleに貼り付けて投稿する
 送信する
 
 </button>
-
-<div id="thanksMessage" class="notice">
-
-ご協力ありがとうございました。
-
-</div>
 
 </div>
 
