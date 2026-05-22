@@ -12,13 +12,15 @@
 
 <style>
 
+/* ===== 全体背景 ===== */
+
 body{
 
   margin:0;
 
   padding:15px;
 
-  background:#edf3f8;
+  background:#fff5f8;
 
   font-family:
 
@@ -28,17 +30,11 @@ body{
 
     sans-serif;
 
-  color:#2c3650;
+  color:#5c4b57;
 
 }
 
-.container{
-
-  max-width:700px;
-
-  margin:20px auto;
-
-}
+/* ===== カード ===== */
 
 .card{
 
@@ -52,9 +48,11 @@ body{
 
   box-shadow:
 
-    0 4px 16px rgba(0,0,0,0.05);
+    0 4px 16px rgba(255,182,193,0.15);
 
 }
+
+/* ===== タイトル ===== */
 
 h1{
 
@@ -64,7 +62,7 @@ h1{
 
   margin-bottom:18px;
 
-  color:#1d2a44;
+  color:#c26f8e;
 
 }
 
@@ -74,11 +72,13 @@ h1{
 
   font-size:18px;
 
-  color:#7a879c;
+  color:#b88ca0;
 
   margin-bottom:35px;
 
 }
+
+/* ===== 説明文 ===== */
 
 .noticeText{
 
@@ -86,9 +86,11 @@ h1{
 
   line-height:2;
 
-  color:#6a7487;
+  color:#8a7080;
 
 }
+
+/* ===== 星評価タイトル ===== */
 
 .ratingTitle{
 
@@ -100,7 +102,11 @@ h1{
 
   margin-bottom:30px;
 
+  color:#c26f8e;
+
 }
+
+/* ===== 星 ===== */
 
 .stars{
 
@@ -122,13 +128,13 @@ h1{
 
   transition:0.2s;
 
-  color:#d9d9d9;
+  color:#ead9df;
 
 }
 
 .star.active{
 
-  color:#f5c400;
+  color:#ffb7d5;
 
 }
 
@@ -137,6 +143,8 @@ h1{
   transform:scale(1.08);
 
 }
+
+/* ===== ボタン ===== */
 
 button{
 
@@ -160,29 +168,37 @@ button{
 
 button:hover{
 
-  opacity:0.92;
+  opacity:0.95;
+
+  transform:translateY(-1px);
 
 }
 
+/* ===== メインボタン ===== */
+
 .mainButton{
 
-  background:#ff8d1a;
+  background:#f7b6c8;
 
   color:white;
 
 }
 
+/* ===== サブボタン ===== */
+
 .subButton{
 
   background:white;
 
-  border:3px solid #dfe4ec;
+  border:3px solid #ffd6e5;
 
-  color:#657089;
+  color:#c7839e;
 
   margin-top:18px;
 
 }
+
+/* ===== セクション ===== */
 
 .section{
 
@@ -196,7 +212,11 @@ button:hover{
 
   font-size:28px;
 
+  color:#c26f8e;
+
 }
+
+/* ===== 選択肢 ===== */
 
 .options-grid{
 
@@ -216,7 +236,7 @@ button:hover{
 
   align-items:center;
 
-  background:#f8fbff;
+  background:#fff8fb;
 
   padding:18px;
 
@@ -232,7 +252,7 @@ button:hover{
 
 .option:hover{
 
-  background:#edf5ff;
+  background:#ffeef5;
 
 }
 
@@ -244,11 +264,7 @@ button:hover{
 
 }
 
-#reviewPage{
-
-  display:none;
-
-}
+/* ===== 口コミカード ===== */
 
 .reviewCard{
 
@@ -262,15 +278,17 @@ button:hover{
 
   font-size:24px;
 
-  color:#374259;
+  color:#5f5260;
 
   box-shadow:
 
-    0 4px 16px rgba(0,0,0,0.05);
+    0 4px 16px rgba(255,182,193,0.12);
 
   white-space:pre-line;
 
 }
+
+/* ===== 口コミ上部 ===== */
 
 .reviewTop{
 
@@ -286,7 +304,7 @@ button:hover{
 
 .reviewStars{
 
-  color:#f5c400;
+  color:#ffb7d5;
 
   font-size:34px;
 
@@ -294,11 +312,13 @@ button:hover{
 
 .reviewClinic{
 
-  color:#9aa6ba;
+  color:#c4a2b1;
 
   font-size:22px;
 
 }
+
+/* ===== 口コミタイトル ===== */
 
 .reviewTitle{
 
@@ -310,13 +330,15 @@ button:hover{
 
   margin-bottom:10px;
 
+  color:#c26f8e;
+
 }
 
 .reviewSub{
 
   text-align:center;
 
-  color:#9ba6b7;
+  color:#c7a8b6;
 
   margin-bottom:40px;
 
@@ -324,13 +346,15 @@ button:hover{
 
 }
 
+/* ===== 説明ボックス ===== */
+
 .noticeBox{
 
-  background:#f4f3ff;
+  background:#fff4f8;
 
-  border:2px solid #d9d5ff;
+  border:2px solid #ffd6e5;
 
-  color:#5d50d6;
+  color:#cc6f95;
 
   border-radius:24px;
 
@@ -344,11 +368,13 @@ button:hover{
 
 }
 
+/* ===== 小さい説明 ===== */
+
 .small{
 
   text-align:center;
 
-  color:#a2acbb;
+  color:#c4a8b5;
 
   margin-top:18px;
 
