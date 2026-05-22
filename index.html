@@ -292,6 +292,12 @@ button:hover{
 
 }
 
+.low-mode .notice{
+
+  display:none;
+
+}
+
 #result{
 
   background:white;
@@ -778,6 +784,10 @@ function checkRating(){
 
   if(selectedStar >= 4){
 
+    document.getElementById("reviewPage")
+
+      .classList.remove("low-mode");
+
     document.getElementById("highFlow").style.display =
 
       "block";
@@ -787,6 +797,10 @@ function checkRating(){
       "none";
 
   }else{
+
+    document.getElementById("reviewPage")
+
+      .classList.add("low-mode");
 
     document.getElementById("highFlow").style.display =
 
@@ -809,264 +823,6 @@ function randomChoice(arr){
     Math.floor(Math.random()*arr.length)
 
   ];
-
-}
-
-/* 大幅強化版 AI風口コミ生成 */
-
-function generateReview(){
-
-  const purpose =
-
-    document.querySelector(
-
-      'input[name="purpose"]:checked'
-
-    );
-
-  if(!purpose){
-
-    alert("来院理由を選択してください");
-
-    return;
-
-  }
-
-  const checked =
-
-    document.querySelectorAll(
-
-      '#highFlow input[type="checkbox"]:checked'
-
-    );
-
-  const selectedPoints = [];
-
-  checked.forEach(point=>{
-
-    selectedPoints.push(point.value);
-
-  });
-
-  /* 導入文 */
-
-  const intros = [
-
-    `今回は${purpose.value}で来院しました。`,
-
-    `${purpose.value}が気になり受診しました。`,
-
-    `${purpose.value}の相談で通院しました。`,
-
-    `${purpose.value}を希望して受診しました。`,
-
-    `${purpose.value}でお世話になりました。`,
-
-    `${purpose.value}目的で来院しました。`,
-
-    `以前から気になっていた${purpose.value}で受診しました。`,
-
-    `${purpose.value}について相談したく来院しました。`,
-
-    `${purpose.value}のため初めて受診しました。`,
-
-    `${purpose.value}で通院することになりました。`
-
-  ];
-
-  /* 不安系 */
-
-  const anxietyTexts = [
-
-    "最初は少し不安もありましたが、",
-
-    "歯科治療が苦手で緊張していましたが、",
-
-    "久しぶりの歯科受診で不安がありましたが、",
-
-    "最初はどんな治療になるのか心配でしたが、",
-
-    "歯医者に苦手意識があり不安でしたが、",
-
-    "緊張しながら受診しましたが、",
-
-    "治療前は少し怖さもありましたが、",
-
-    "不安な気持ちで受診しましたが、",
-
-    "初めての来院で緊張していましたが、",
-
-    "説明を聞くまでは不安もありましたが、"
-
-  ];
-
-  /* 良かった点 */
-
-  const pointTemplates = {
-
-    "説明が丁寧":[
-
-      "治療内容をとても丁寧に説明していただけました。",
-
-      "現在の状態や治療方針を分かりやすく説明していただき安心できました。",
-
-      "質問にも丁寧に答えてくださり信頼できました。",
-
-      "説明が分かりやすく納得した上で治療を受けられました。",
-
-      "細かい部分まで丁寧に説明していただけました。"
-
-    ],
-
-    "痛みが少ない":[
-
-      "治療中も痛みに配慮していただき安心できました。",
-
-      "思っていたより痛みが少なく安心しました。",
-
-      "治療中の負担が少なく落ち着いて受けられました。",
-
-      "痛みに気を配って治療していただけました。",
-
-      "不安でしたが痛みも少なく助かりました。"
-
-    ],
-
-    "スタッフが親切":[
-
-      "スタッフの皆さんが親切で通いやすい雰囲気でした。",
-
-      "受付の方も丁寧で安心感がありました。",
-
-      "皆さん優しく対応してくださり安心できました。",
-
-      "スタッフの対応が温かく通いやすかったです。",
-
-      "医院全体の雰囲気が良かったです。"
-
-    ],
-
-    "清潔感がある":[
-
-      "院内も清潔感があり安心感がありました。",
-
-      "清潔感のある院内で気持ちよく通院できました。",
-
-      "衛生管理もしっかりされている印象でした。",
-
-      "院内が綺麗で安心して過ごせました。",
-
-      "設備も清潔感があり好印象でした。"
-
-    ],
-
-    "待ち時間が少ない":[
-
-      "待ち時間も少なくスムーズに案内していただけました。",
-
-      "予約時間通りで助かりました。",
-
-      "待ち時間が少なく通いやすかったです。",
-
-      "スムーズに診療していただけました。",
-
-      "時間管理がしっかりされている印象でした。"
-
-    ],
-
-    "しっかり治療してくれた":[
-
-      "しっかり状態を確認しながら治療していただけました。",
-
-      "とても丁寧に治療していただき安心できました。",
-
-      "一つ一つ丁寧に処置していただけました。",
-
-      "細かい部分まで丁寧に診てもらえました。",
-
-      "安心して治療を任せられると感じました。"
-
-    ],
-
-    "処置が丁寧":[
-
-      "処置も丁寧で安心して治療を受けることができました。",
-
-      "とても丁寧な処置で安心感がありました。",
-
-      "落ち着いて治療を受けることができました。",
-
-      "細かい部分まで丁寧に対応していただけました。",
-
-      "毎回安心して通院できています。"
-
-    ]
-
-  };
-
-  let middleText = "";
-
-  selectedPoints.forEach(point=>{
-
-    const templates =
-
-      pointTemplates[point];
-
-    if(templates){
-
-      middleText +=
-
-        randomChoice(templates) + "\n";
-
-    }
-
-  });
-
-  /* 締め */
-
-  const endings = [
-
-    "全体的にとても丁寧に対応していただき満足しています。今後も通院したいと思える歯科医院でした。",
-
-    "不安なく通える歯科医院だと感じました。周囲にもおすすめしたいと思います。",
-
-    "先生やスタッフの皆さんの対応が丁寧で、安心して治療を受けることができました。",
-
-    "これからも定期的に通いたいと思える歯科医院でした。",
-
-    "安心感のある歯科医院で、またお願いしたいと思いました。",
-
-    "初めてでも安心して通える歯科医院だと思います。",
-
-    "対応が丁寧で最後まで安心して通院できました。",
-
-    "信頼して治療をお願いできる歯科医院だと思います。",
-
-    "今後もメンテナンスで通いたいと思います。",
-
-    "丁寧に対応していただきありがとうございました。"
-
-  ];
-
-  const review =
-
-    randomChoice(intros) +
-
-    "\n\n" +
-
-    randomChoice(anxietyTexts) +
-
-    "\n\n" +
-
-    middleText +
-
-    "\n" +
-
-    randomChoice(endings);
-
-  document.getElementById("result").innerText =
-
-    review;
 
 }
 
