@@ -12,15 +12,13 @@
 
 <style>
 
-/* ===== 全体背景 ===== */
-
 body{
 
   margin:0;
 
   padding:15px;
 
-  background:#fff5f8;
+  background:#edf3f8;
 
   font-family:
 
@@ -30,11 +28,17 @@ body{
 
     sans-serif;
 
-  color:#5c4b57;
+  color:#2c3650;
 
 }
 
-/* ===== カード ===== */
+.container{
+
+  max-width:700px;
+
+  margin:20px auto;
+
+}
 
 .card{
 
@@ -48,11 +52,9 @@ body{
 
   box-shadow:
 
-    0 4px 16px rgba(255,182,193,0.15);
+    0 4px 16px rgba(0,0,0,0.05);
 
 }
-
-/* ===== タイトル ===== */
 
 h1{
 
@@ -62,7 +64,7 @@ h1{
 
   margin-bottom:18px;
 
-  color:#c26f8e;
+  color:#1d2a44;
 
 }
 
@@ -72,13 +74,11 @@ h1{
 
   font-size:18px;
 
-  color:#b88ca0;
+  color:#7a879c;
 
   margin-bottom:35px;
 
 }
-
-/* ===== 説明文 ===== */
 
 .noticeText{
 
@@ -86,11 +86,9 @@ h1{
 
   line-height:2;
 
-  color:#8a7080;
+  color:#6a7487;
 
 }
-
-/* ===== 星評価タイトル ===== */
 
 .ratingTitle{
 
@@ -102,11 +100,7 @@ h1{
 
   margin-bottom:30px;
 
-  color:#c26f8e;
-
 }
-
-/* ===== 星 ===== */
 
 .stars{
 
@@ -128,13 +122,13 @@ h1{
 
   transition:0.2s;
 
-  color:#ead9df;
+  color:#d9d9d9;
 
 }
 
 .star.active{
 
-  color:#ffb7d5;
+  color:#f5c400;
 
 }
 
@@ -143,8 +137,6 @@ h1{
   transform:scale(1.08);
 
 }
-
-/* ===== ボタン ===== */
 
 button{
 
@@ -168,37 +160,29 @@ button{
 
 button:hover{
 
-  opacity:0.95;
-
-  transform:translateY(-1px);
+  opacity:0.92;
 
 }
 
-/* ===== メインボタン ===== */
-
 .mainButton{
 
-  background:#f7b6c8;
+  background:#ff8d1a;
 
   color:white;
 
 }
 
-/* ===== サブボタン ===== */
-
 .subButton{
 
   background:white;
 
-  border:3px solid #ffd6e5;
+  border:3px solid #dfe4ec;
 
-  color:#c7839e;
+  color:#657089;
 
   margin-top:18px;
 
 }
-
-/* ===== セクション ===== */
 
 .section{
 
@@ -212,11 +196,7 @@ button:hover{
 
   font-size:28px;
 
-  color:#c26f8e;
-
 }
-
-/* ===== 選択肢 ===== */
 
 .options-grid{
 
@@ -236,7 +216,7 @@ button:hover{
 
   align-items:center;
 
-  background:#fff8fb;
+  background:#f8fbff;
 
   padding:18px;
 
@@ -252,7 +232,7 @@ button:hover{
 
 .option:hover{
 
-  background:#ffeef5;
+  background:#edf5ff;
 
 }
 
@@ -264,7 +244,11 @@ button:hover{
 
 }
 
-/* ===== 口コミカード ===== */
+#reviewPage{
+
+  display:none;
+
+}
 
 .reviewCard{
 
@@ -278,17 +262,15 @@ button:hover{
 
   font-size:24px;
 
-  color:#5f5260;
+  color:#374259;
 
   box-shadow:
 
-    0 4px 16px rgba(255,182,193,0.12);
+    0 4px 16px rgba(0,0,0,0.05);
 
   white-space:pre-line;
 
 }
-
-/* ===== 口コミ上部 ===== */
 
 .reviewTop{
 
@@ -304,7 +286,7 @@ button:hover{
 
 .reviewStars{
 
-  color:#ffb7d5;
+  color:#f5c400;
 
   font-size:34px;
 
@@ -312,13 +294,11 @@ button:hover{
 
 .reviewClinic{
 
-  color:#c4a2b1;
+  color:#9aa6ba;
 
   font-size:22px;
 
 }
-
-/* ===== 口コミタイトル ===== */
 
 .reviewTitle{
 
@@ -330,15 +310,13 @@ button:hover{
 
   margin-bottom:10px;
 
-  color:#c26f8e;
-
 }
 
 .reviewSub{
 
   text-align:center;
 
-  color:#c7a8b6;
+  color:#9ba6b7;
 
   margin-bottom:40px;
 
@@ -346,15 +324,13 @@ button:hover{
 
 }
 
-/* ===== 説明ボックス ===== */
-
 .noticeBox{
 
-  background:#fff4f8;
+  background:#f4f3ff;
 
-  border:2px solid #ffd6e5;
+  border:2px solid #d9d5ff;
 
-  color:#cc6f95;
+  color:#5d50d6;
 
   border-radius:24px;
 
@@ -368,13 +344,11 @@ button:hover{
 
 }
 
-/* ===== 小さい説明 ===== */
-
 .small{
 
   text-align:center;
 
-  color:#c4a8b5;
+  color:#a2acbb;
 
   margin-top:18px;
 
@@ -914,25 +888,25 @@ function generateReview(){
 
   const intros = [
 
-    `今回は${purpose.value}で来院しました。`,
+    今回は${purpose.value}で来院しました。,
 
-    `${purpose.value}が気になり受診しました。`,
+    ${purpose.value}が気になり受診しました。,
 
-    `${purpose.value}の相談で通院しました。`,
+    ${purpose.value}の相談で通院しました。,
 
-    `${purpose.value}を希望して受診しました。`,
+    ${purpose.value}を希望して受診しました。,
 
-    `${purpose.value}でお世話になりました。`,
+    ${purpose.value}でお世話になりました。,
 
-    `${purpose.value}目的で来院しました。`,
+    ${purpose.value}目的で来院しました。,
 
-    `以前から気になっていた${purpose.value}で受診しました。`,
+    以前から気になっていた${purpose.value}で受診しました。,
 
-    `${purpose.value}について相談したく来院しました。`,
+    ${purpose.value}について相談したく来院しました。,
 
-    `${purpose.value}のため初めて受診しました。`,
+    ${purpose.value}のため初めて受診しました。,
 
-    `${purpose.value}で通院することになりました。`
+    ${purpose.value}で通院することになりました。
 
   ];
 
@@ -1110,7 +1084,7 @@ function goGoogleReview(){
 
   window.open(
 
-    "https://g.page/r/CaJLMNEdHOFHEBM/review",
+    "https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID",
 
     "_blank"
 
