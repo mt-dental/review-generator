@@ -8,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>福西歯科医院 口コミ投稿</title>
+<title>口コミ投稿</title>
 
 <style>
 
@@ -18,7 +18,7 @@ body{
 
   padding:15px;
 
-  background:#edf3f8;
+  background:#eef5fb;
 
   font-family:
 
@@ -28,7 +28,7 @@ body{
 
     sans-serif;
 
-  color:#2c3650;
+  color:#333;
 
 }
 
@@ -40,65 +40,67 @@ body{
 
 }
 
+h1{
+
+  text-align:center;
+
+  font-size:28px;
+
+  line-height:1.5;
+
+  margin-bottom:10px;
+
+  color:#1f2b3d;
+
+}
+
+.subText{
+
+  text-align:center;
+
+  color:#7a8798;
+
+  line-height:1.8;
+
+  margin-bottom:25px;
+
+  font-size:15px;
+
+}
+
 .card{
 
   background:white;
 
   border-radius:28px;
 
-  padding:28px;
+  padding:26px;
 
-  margin-bottom:24px;
+  margin-bottom:28px;
 
   box-shadow:
 
-    0 4px 16px rgba(0,0,0,0.05);
+    0 4px 12px rgba(0,0,0,0.04);
 
 }
 
-h1{
+.infoBox{
 
-  text-align:center;
+  background:white;
 
-  font-size:48px;
+  border-radius:24px;
 
-  margin-bottom:18px;
-
-  color:#1d2a44;
-
-}
-
-.subTitle{
-
-  text-align:center;
-
-  font-size:18px;
-
-  color:#7a879c;
-
-  margin-bottom:35px;
-
-}
-
-.noticeText{
-
-  font-size:17px;
+  padding:24px;
 
   line-height:2;
 
-  color:#6a7487;
-
-}
-
-.ratingTitle{
-
-  text-align:center;
-
-  font-size:44px;
-
-  font-weight:bold;
+  color:#68788d;
 
   margin-bottom:30px;
+
+  box-shadow:
+
+    0 3px 10px rgba(0,0,0,0.03);
 
 }
 
@@ -108,33 +110,99 @@ h1{
 
   justify-content:center;
 
-  gap:18px;
+  gap:12px;
 
-  margin-bottom:35px;
+  margin-top:25px;
+
+  margin-bottom:10px;
 
 }
 
-.star{
-
-  font-size:78px;
+.stars label{
 
   cursor:pointer;
 
   transition:0.2s;
 
-  color:#d9d9d9;
+  font-size:22px;
 
 }
 
-.star.active{
+.stars label:hover{
 
-  color:#f5c400;
+  transform:scale(1.1);
 
 }
 
-.star:hover{
+.starText{
 
-  transform:scale(1.08);
+  text-align:center;
+
+  font-size:18px;
+
+  color:#ff8b1f;
+
+  margin-top:10px;
+
+}
+
+.section{
+
+  margin-bottom:28px;
+
+}
+
+h3{
+
+  margin-bottom:14px;
+
+  font-size:19px;
+
+  color:#1f2b3d;
+
+}
+
+.options-grid{
+
+  display:grid;
+
+  grid-template-columns:
+
+    repeat(auto-fit,minmax(160px,1fr));
+
+  gap:12px;
+
+}
+
+.option{
+
+  background:white;
+
+  border-radius:16px;
+
+  padding:14px;
+
+  display:flex;
+
+  align-items:center;
+
+  cursor:pointer;
+
+  transition:0.2s;
+
+  border:1px solid #edf1f5;
+
+}
+
+.option:hover{
+
+  background:#f5fbff;
+
+}
+
+.option input{
+
+  margin-right:8px;
 
 }
 
@@ -146,9 +214,9 @@ button{
 
   border-radius:22px;
 
-  padding:24px;
+  padding:18px;
 
-  font-size:34px;
+  font-size:18px;
 
   font-weight:bold;
 
@@ -160,87 +228,43 @@ button{
 
 button:hover{
 
-  opacity:0.92;
+  opacity:0.93;
 
 }
 
-.mainButton{
+#nextButton,
 
-  background:#ff8d1a;
+#generateButton,
+
+#googleButton{
+
+  background:#ff8b1f;
 
   color:white;
 
 }
 
-.subButton{
+#copyButton{
 
   background:white;
 
-  border:3px solid #dfe4ec;
+  color:#ff8b1f;
 
-  color:#657089;
+  border:2px solid #ffd1a5;
 
-  margin-top:18px;
-
-}
-
-.section{
-
-  margin-bottom:30px;
+  margin-top:16px;
 
 }
 
-.section h3{
+#retryButton{
 
-  margin-bottom:16px;
+  background:white;
 
-  font-size:28px;
+  color:#6e7d91;
 
-}
+  border:2px solid #dbe4ec;
 
-.options-grid{
-
-  display:grid;
-
-  grid-template-columns:
-
-    repeat(auto-fit,minmax(220px,1fr));
-
-  gap:14px;
-
-}
-
-.option{
-
-  display:flex;
-
-  align-items:center;
-
-  background:#f8fbff;
-
-  padding:18px;
-
-  border-radius:18px;
-
-  cursor:pointer;
-
-  transition:0.2s;
-
-  font-size:20px;
-
-}
-
-.option:hover{
-
-  background:#edf5ff;
-
-}
-
-.option input{
-
-  margin-right:10px;
-
-  transform:scale(1.3);
+  margin-top:14px;
 
 }
 
@@ -250,97 +274,45 @@ button:hover{
 
 }
 
-.reviewCard{
+.notice{
+
+  background:#f4f7ff;
+
+  border:2px solid #dce6ff;
+
+  border-radius:22px;
+
+  padding:22px;
+
+  line-height:1.9;
+
+  color:#4958c8;
+
+  margin-bottom:22px;
+
+}
+
+#result{
 
   background:white;
 
   border-radius:28px;
 
-  padding:32px;
+  padding:28px;
 
   line-height:2;
 
-  font-size:24px;
+  white-space:pre-line;
 
-  color:#374259;
+  font-size:17px;
+
+  color:#404b5a;
+
+  margin-top:22px;
 
   box-shadow:
 
-    0 4px 16px rgba(0,0,0,0.05);
-
-  white-space:pre-line;
-
-}
-
-.reviewTop{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:16px;
-
-  margin-bottom:20px;
-
-}
-
-.reviewStars{
-
-  color:#f5c400;
-
-  font-size:34px;
-
-}
-
-.reviewClinic{
-
-  color:#9aa6ba;
-
-  font-size:22px;
-
-}
-
-.reviewTitle{
-
-  text-align:center;
-
-  font-size:42px;
-
-  font-weight:bold;
-
-  margin-bottom:10px;
-
-}
-
-.reviewSub{
-
-  text-align:center;
-
-  color:#9ba6b7;
-
-  margin-bottom:40px;
-
-  font-size:22px;
-
-}
-
-.noticeBox{
-
-  background:#f4f3ff;
-
-  border:2px solid #d9d5ff;
-
-  color:#5d50d6;
-
-  border-radius:24px;
-
-  padding:24px;
-
-  line-height:1.8;
-
-  margin-bottom:22px;
-
-  font-size:22px;
+    0 3px 10px rgba(0,0,0,0.04);
 
 }
 
@@ -348,11 +320,11 @@ button:hover{
 
   text-align:center;
 
-  color:#a2acbb;
+  margin-top:10px;
 
-  margin-top:18px;
+  color:#9aa7b7;
 
-  font-size:18px;
+  font-size:13px;
 
 }
 
@@ -364,35 +336,17 @@ button:hover{
 
 @media(max-width:600px){
 
+  .options-grid{
+
+    grid-template-columns:
+
+      repeat(2,1fr);
+
+  }
+
   h1{
 
-    font-size:30px;
-
-  }
-
-  .ratingTitle{
-
-    font-size:30px;
-
-  }
-
-  .star{
-
-    font-size:52px;
-
-  }
-
-  button{
-
     font-size:24px;
-
-    padding:18px;
-
-  }
-
-  .reviewCard{
-
-    font-size:18px;
 
   }
 
@@ -406,85 +360,91 @@ button:hover{
 
 <div class="container">
 
-<!-- 初期ページ -->
+<!-- 初期画面 -->
 
 <div id="ratingPage">
 
-<div class="card">
-
 <h1>
 
-福西歯科医院
+福西歯科クリニック
 
 </h1>
 
-<div class="subTitle">
+<div class="subText">
 
 ご来院ありがとうございました。
 
 </div>
 
-<div class="card" style="margin-top:20px;">
-
-<div class="noticeText">
+<div class="infoBox">
 
 このアンケートは当院をご利用いただいた方を対象としています。<br><br>
 
-アンケートに回答することで得られるデータは、
+アンケートにご回答いただくことで得られるデータは、
 
-当院のサービス向上に活用させていただきます。<br><br>
+当院のサービス向上や今後の医院改善に活用させていただきます。<br><br>
 
-ご同意いただいた上でアンケートにお答えください。
-
-</div>
-
-</div>
+ご協力よろしくお願いいたします。
 
 </div>
 
 <div class="card">
 
-<div class="ratingTitle">
+<h1>
 
-本日のご満足度を教えてください
+本日のご満足度を
 
-</div>
+教えてください
+
+</h1>
 
 <div class="stars">
 
-<div class="star" onclick="selectStar(1)">
+<label>
+
+<input type="radio" name="star" value="1">
 
 ★
 
+</label>
+
+<label>
+
+<input type="radio" name="star" value="2">
+
+★★
+
+</label>
+
+<label>
+
+<input type="radio" name="star" value="3">
+
+★★★
+
+</label>
+
+<label>
+
+<input type="radio" name="star" value="4">
+
+★★★★
+
+</label>
+
+<label>
+
+<input type="radio" name="star" value="5">
+
+★★★★★
+
+</label>
+
 </div>
 
-<div class="star" onclick="selectStar(2)">
-
-★
-
 </div>
 
-<div class="star" onclick="selectStar(3)">
-
-★
-
-</div>
-
-<div class="star" onclick="selectStar(4)">
-
-★
-
-</div>
-
-<div class="star" onclick="selectStar(5)">
-
-★
-
-</div>
-
-</div>
-
-<button class="mainButton" onclick="checkRating()">
+<button id="nextButton" onclick="checkRating()">
 
 次へ →
 
@@ -492,13 +452,19 @@ button:hover{
 
 </div>
 
-</div>
-
-<!-- 口コミページ -->
+<!-- 口コミ画面 -->
 
 <div id="reviewPage">
 
-<div class="noticeBox">
+<h1>
+
+アンケートへのご回答<br>
+
+ありがとうございました
+
+</h1>
+
+<div class="notice">
 
 Googleへの投稿もぜひお願いします🙏<br><br>
 
@@ -510,25 +476,13 @@ Googleへの投稿もぜひお願いします🙏<br><br>
 
 </div>
 
-<div class="noticeBox">
+<div class="notice">
 
-💡 以下はAIが作成した参考文です。<br>
+💡 以下はAIが作成した参考文章です。<br>
 
-実際のご体験に合わせて、
+ご自身の体験に合わせて編集の上、
 
-ご自身の言葉に編集してご投稿ください。
-
-</div>
-
-<div class="reviewTitle">
-
-✏️ 参考文の下書きを作成しました
-
-</div>
-
-<div class="reviewSub">
-
-内容をご確認・編集の上、投稿してください
+投稿してください。
 
 </div>
 
@@ -538,11 +492,7 @@ Googleへの投稿もぜひお願いします🙏<br><br>
 
 <div class="section">
 
-<h3>
-
-来院理由
-
-</h3>
+<h3>来院理由</h3>
 
 <div class="options-grid">
 
@@ -574,7 +524,7 @@ Googleへの投稿もぜひお願いします🙏<br><br>
 
 <input type="radio" name="purpose" value="インプラント治療">
 
-インプラント治療
+インプラント
 
 </label>
 
@@ -610,7 +560,7 @@ Googleへの投稿もぜひお願いします🙏<br><br>
 
 <h3>
 
-良かった点
+良かった点（複数選択可）
 
 </h3>
 
@@ -636,7 +586,7 @@ Googleへの投稿もぜひお願いします🙏<br><br>
 
 <input type="checkbox" value="スタッフが親切">
 
-スタッフが親切
+スタッフ親切
 
 </label>
 
@@ -676,61 +626,27 @@ Googleへの投稿もぜひお願いします🙏<br><br>
 
 </div>
 
-<button class="mainButton" onclick="generateReview()">
+<button id="generateButton" onclick="generateReview()">
 
-口コミを生成する
+参考文を生成する
 
 </button>
 
-<div style="height:24px;"></div>
+<div id="result"></div>
 
-<div class="reviewCard">
-
-<div class="reviewTop">
-
-<div class="reviewStars">
-
-★★★★★
-
-</div>
-
-<div class="reviewClinic">
-
-福西歯科医院
-
-</div>
-
-</div>
-
-<div id="result">
-
-ここに口コミが表示されます
-
-</div>
-
-</div>
-
-<button class="mainButton"
-
-style="margin-top:24px;"
-
-onclick="copyReview()">
+<button id="copyButton" onclick="copyReview()">
 
 📋 コピーする
 
 </button>
 
-<button class="subButton"
-
-onclick="generateReview()">
+<button id="retryButton" onclick="generateReview()">
 
 🔄 別の文章を生成する
 
 </button>
 
-<button class="subButton"
-
-onclick="goGoogleReview()">
+<button id="googleButton" onclick="goGoogleReview()">
 
 Googleへ投稿する
 
@@ -738,7 +654,7 @@ Googleへ投稿する
 
 <div class="small">
 
-※投稿前に内容をご確認ください
+※内容をご確認・編集の上投稿してください
 
 </div>
 
@@ -748,9 +664,9 @@ Googleへ投稿する
 
 <div id="lowFlow">
 
-<div class="card">
+<div class="notice">
 
-貴重なご意見ありがとうございます。<br><br>
+貴重なご意見ありがとうございます。<br>
 
 今後の改善のため、
 
@@ -758,7 +674,69 @@ Googleへ投稿する
 
 </div>
 
+<div class="section">
+
+<h3>来院理由</h3>
+
+<div class="options-grid">
+
+<label class="option">
+
+<input type="radio" name="lowPurpose" value="虫歯治療">
+
+虫歯治療
+
+</label>
+
+<label class="option">
+
+<input type="radio" name="lowPurpose" value="クリーニング">
+
+クリーニング
+
+</label>
+
+<label class="option">
+
+<input type="radio" name="lowPurpose" value="根管治療">
+
+根管治療
+
+</label>
+
+<label class="option">
+
+<input type="radio" name="lowPurpose" value="インプラント治療">
+
+インプラント
+
+</label>
+
+<label class="option">
+
+<input type="radio" name="lowPurpose" value="入れ歯治療">
+
+入れ歯治療
+
+</label>
+
+<label class="option">
+
+<input type="radio" name="lowPurpose" value="ホワイトニング">
+
+ホワイトニング
+
+</label>
+
 </div>
+
+</div>
+
+<button id="generateButton" onclick="submitLow()">
+
+送信する
+
+</button>
 
 </div>
 
@@ -766,45 +744,29 @@ Googleへ投稿する
 
 <script>
 
-let selectedStar = 0;
+let selectedStar = "";
 
-/* 星選択 */
-
-function selectStar(num){
-
-  selectedStar = num;
-
-  const stars =
-
-    document.querySelectorAll(".star");
-
-  stars.forEach((star,index)=>{
-
-    if(index < num){
-
-      star.classList.add("active");
-
-    }else{
-
-      star.classList.remove("active");
-
-    }
-
-  });
-
-}
-
-/* 次へ */
+/* 星判定 */
 
 function checkRating(){
 
-  if(selectedStar === 0){
+  const star =
+
+    document.querySelector(
+
+      'input[name="star"]:checked'
+
+    );
+
+  if(!star){
 
     alert("星評価を選択してください");
 
     return;
 
   }
+
+  selectedStar = Number(star.value);
 
   document.getElementById("ratingPage").style.display =
 
@@ -850,7 +812,7 @@ function randomChoice(arr){
 
 }
 
-/* 口コミ生成 */
+/* AI風口コミ生成 */
 
 function generateReview(){
 
@@ -888,25 +850,11 @@ function generateReview(){
 
   const intros = [
 
-    今回は${purpose.value}で来院しました。,
+    `今回は${purpose.value}で来院しました。`,
 
-    ${purpose.value}が気になり受診しました。,
+    `${purpose.value}の相談で受診しました。`,
 
-    ${purpose.value}の相談で通院しました。,
-
-    ${purpose.value}を希望して受診しました。,
-
-    ${purpose.value}でお世話になりました。,
-
-    ${purpose.value}目的で来院しました。,
-
-    以前から気になっていた${purpose.value}で受診しました。,
-
-    ${purpose.value}について相談したく来院しました。,
-
-    ${purpose.value}のため初めて受診しました。,
-
-    ${purpose.value}で通院することになりました。
+    `${purpose.value}が気になり受診しました。`
 
   ];
 
@@ -914,97 +862,41 @@ function generateReview(){
 
     "最初は少し不安もありましたが、",
 
-    "歯科治療が苦手で緊張していましたが、",
+    "歯科治療に苦手意識があり緊張していましたが、",
 
-    "久しぶりの歯科受診で不安がありましたが、",
-
-    "最初はどんな治療になるのか心配でしたが、",
-
-    "歯医者に苦手意識があり不安でしたが、",
-
-    "緊張しながら受診しましたが、",
-
-    "治療前は少し怖さもありましたが、",
-
-    "不安な気持ちで受診しましたが、",
-
-    "初めての来院で緊張していましたが、",
-
-    "説明を聞くまでは不安もありましたが、"
+    "久しぶりの歯科受診で不安がありましたが、"
 
   ];
 
   const pointTemplates = {
 
-    "説明が丁寧":[
+    "説明が丁寧":
 
-      "現在の状態や治療方針を分かりやすく説明していただき安心できました。",
+      "治療内容を分かりやすく説明していただけました。",
 
-      "質問にも丁寧に答えてくださり信頼できました。",
-
-      "説明がとても分かりやすかったです。"
-
-    ],
-
-    "痛みが少ない":[
+    "痛みが少ない":
 
       "治療中も痛みに配慮していただき安心できました。",
 
-      "思っていたより痛みが少なく助かりました。",
+    "スタッフが親切":
 
-      "不安でしたが負担が少なく安心しました。"
+      "スタッフの皆さんが親切で通いやすい雰囲気でした。",
 
-    ],
+    "清潔感がある":
 
-    "スタッフが親切":[
+      "院内も清潔感があり安心感がありました。",
 
-      "スタッフの皆さんが親切で安心感がありました。",
+    "待ち時間が少ない":
 
-      "受付の方も丁寧で通いやすかったです。",
+      "待ち時間も少なくスムーズに案内していただけました。",
 
-      "医院全体の雰囲気が良かったです。"
+    "しっかり治療してくれた":
 
-    ],
+      "しっかり状態を確認しながら丁寧に治療していただけました。",
 
-    "清潔感がある":[
+    "処置が丁寧":
 
-      "院内も清潔感があり安心して通院できました。",
-
-      "衛生管理もしっかりされている印象でした。",
-
-      "設備も綺麗で好印象でした。"
-
-    ],
-
-    "待ち時間が少ない":[
-
-      "待ち時間も少なくスムーズでした。",
-
-      "予約時間通りで助かりました。",
-
-      "時間管理がしっかりされていました。"
-
-    ],
-
-    "しっかり治療してくれた":[
-
-      "細かい部分まで丁寧に診てもらえました。",
-
-      "安心して治療を任せられると感じました。",
-
-      "しっかり状態を確認しながら治療していただけました。"
-
-    ],
-
-    "処置が丁寧":[
-
-      "処置も丁寧で安心して治療を受けることができました。",
-
-      "毎回安心して通院できています。",
-
-      "細かい部分まで丁寧に対応していただけました。"
-
-    ]
+      "処置も丁寧で安心して治療を受けることができました。"
 
   };
 
@@ -1012,17 +904,9 @@ function generateReview(){
 
   selectedPoints.forEach(point=>{
 
-    const templates =
+    middleText +=
 
-      pointTemplates[point];
-
-    if(templates){
-
-      middleText +=
-
-        randomChoice(templates) + "\n";
-
-    }
+      pointTemplates[point] + "\n";
 
   });
 
@@ -1032,13 +916,7 @@ function generateReview(){
 
     "不安なく通える歯科医院だと感じました。周囲にもおすすめしたいと思います。",
 
-    "先生やスタッフの皆さんの対応が丁寧で、安心して治療を受けることができました。",
-
-    "これからも定期的に通いたいと思える歯科医院でした。",
-
-    "安心感のある歯科医院で、またお願いしたいと思いました。",
-
-    "初めてでも安心して通える歯科医院だと思います。"
+    "先生やスタッフの皆さんの対応が丁寧で、安心して治療を受けることができました。"
 
   ];
 
@@ -1072,13 +950,21 @@ function copyReview(){
 
     document.getElementById("result").innerText;
 
+  if(text === ""){
+
+    alert("先に文章を生成してください");
+
+    return;
+
+  }
+
   navigator.clipboard.writeText(text);
 
-  alert("コピーしました");
+  alert("コピーしました！");
 
 }
 
-/* Googleレビュー */
+/* Google投稿 */
 
 function goGoogleReview(){
 
@@ -1089,6 +975,40 @@ function goGoogleReview(){
     "_blank"
 
   );
+
+}
+
+/* 低評価 */
+
+function submitLow(){
+
+  const purpose =
+
+    document.querySelector(
+
+      'input[name="lowPurpose"]:checked'
+
+    );
+
+  if(!purpose){
+
+    alert("来院理由を選択してください");
+
+    return;
+
+  }
+
+  document.getElementById("lowFlow").innerHTML = `
+
+    <div class="notice">
+
+      ご協力ありがとうございました。<br>
+
+      今後の改善に活かしてまいります。
+
+    </div>
+
+  `;
 
 }
 
