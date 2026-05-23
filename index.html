@@ -292,12 +292,6 @@ button:hover{
 
 }
 
-.low-mode .notice{
-
-  display:none;
-
-}
-
 #result{
 
   background:white;
@@ -784,10 +778,6 @@ function checkRating(){
 
   if(selectedStar >= 4){
 
-    document.getElementById("reviewPage")
-
-      .classList.remove("low-mode");
-
     document.getElementById("highFlow").style.display =
 
       "block";
@@ -797,10 +787,6 @@ function checkRating(){
       "none";
 
   }else{
-
-    document.getElementById("reviewPage")
-
-      .classList.add("low-mode");
 
     document.getElementById("highFlow").style.display =
 
@@ -823,6 +809,136 @@ function randomChoice(arr){
     Math.floor(Math.random()*arr.length)
 
   ];
+
+}
+
+/* AI風口コミ生成 */
+
+function generateReview(){
+
+  const purpose =
+
+    document.querySelector(
+
+      'input[name="purpose"]:checked'
+
+    );
+
+  if(!purpose){
+
+    alert("来院理由を選択してください");
+
+    return;
+
+  }
+
+  const checked =
+
+    document.querySelectorAll(
+
+      '#highFlow input[type="checkbox"]:checked'
+
+    );
+
+  const selectedPoints = [];
+
+  checked.forEach(point=>{
+
+    selectedPoints.push(point.value);
+
+  });
+
+  const intros = [
+
+    `今回は${purpose.value}で来院しました。`,
+
+    `${purpose.value}の相談で受診しました。`,
+
+    `${purpose.value}が気になり受診しました。`
+
+  ];
+
+  const anxietyTexts = [
+
+    "最初は少し不安もありましたが、",
+
+    "歯科治療に苦手意識があり緊張していましたが、",
+
+    "久しぶりの歯科受診で不安がありましたが、"
+
+  ];
+
+  const pointTemplates = {
+
+    "説明が丁寧":
+
+      "治療内容を分かりやすく説明していただけました。",
+
+    "痛みが少ない":
+
+      "治療中も痛みに配慮していただき安心できました。",
+
+    "スタッフが親切":
+
+      "スタッフの皆さんが親切で通いやすい雰囲気でした。",
+
+    "清潔感がある":
+
+      "院内も清潔感があり安心感がありました。",
+
+    "待ち時間が少ない":
+
+      "待ち時間も少なくスムーズに案内していただけました。",
+
+    "しっかり治療してくれた":
+
+      "しっかり状態を確認しながら丁寧に治療していただけました。",
+
+    "処置が丁寧":
+
+      "処置も丁寧で安心して治療を受けることができました。"
+
+  };
+
+  let middleText = "";
+
+  selectedPoints.forEach(point=>{
+
+    middleText +=
+
+      pointTemplates[point] + "\n";
+
+  });
+
+  const endings = [
+
+    "全体的にとても丁寧に対応していただき満足しています。今後も通院したいと思える歯科医院でした。",
+
+    "不安なく通える歯科医院だと感じました。周囲にもおすすめしたいと思います。",
+
+    "先生やスタッフの皆さんの対応が丁寧で、安心して治療を受けることができました。"
+
+  ];
+
+  const review =
+
+    randomChoice(intros) +
+
+    "\n\n" +
+
+    randomChoice(anxietyTexts) +
+
+    "\n\n" +
+
+    middleText +
+
+    "\n" +
+
+    randomChoice(endings);
+
+  document.getElementById("result").innerText =
+
+    review;
 
 }
 
@@ -854,7 +970,7 @@ function goGoogleReview(){
 
   window.open(
 
-    "https://g.page/r/CaJLMNEdHOFHEBM/review",
+    "https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID",
 
     "_blank"
 
