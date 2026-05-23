@@ -782,7 +782,17 @@ function checkRating(){
 
     "block";
 
+  /* reviewPage取得 */
+
+  const reviewPage =
+
+    document.getElementById("reviewPage");
+
   if(selectedStar >= 4){
+
+    /* 高評価時はnotice表示 */
+
+    reviewPage.classList.remove("low-mode");
 
     document.getElementById("highFlow").style.display =
 
@@ -793,6 +803,10 @@ function checkRating(){
       "none";
 
   }else{
+
+    /* 低評価時はnotice非表示 */
+
+    reviewPage.classList.add("low-mode");
 
     document.getElementById("highFlow").style.display =
 
