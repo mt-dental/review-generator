@@ -738,11 +738,13 @@ Googleへ投稿する
 
 </div>
 
-<button id="generateButton" onclick="submitLow()">
+<button id="lowSubmitButton" onclick="submitLow()">
 
 送信する
 
 </button>
+
+<div id="lowMessage"></div>
 
 </div>
 
@@ -1018,13 +1020,13 @@ function submitLow(){
 
   }
 
-  document.getElementById("lowFlow").innerHTML = `
+  document.getElementById("lowMessage").innerHTML = `
 
     <div class="notice">
 
-      ご協力ありがとうございました。<br>
+      貴重なご意見ありがとうございました。<br>
 
-      今後の改善に活かしてまいります。
+      アンケートは以上となります。
 
     </div>
 
